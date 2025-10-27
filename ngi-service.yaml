@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ngi-service
+spec:
+  selector:
+    app: ngi-nick
+  ports:
+  - protocol: TCP
+    port: 8082         
+    targetPort: 80         

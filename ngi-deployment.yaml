@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ngi-deployment
+spec:
+  replicas: 3
+  selector:                     # selector will match the label with pods for deployment
+    matchLabels:
+      app: ngi-nick
+  template:                     # template will give the nickname to pods
+    metadata:
+      labels:
+        app: ngi-nick           # label with nickname
+    spec:
+      containers:
+      - name: ngi-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80

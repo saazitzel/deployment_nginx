@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-deployment
+spec:
+  replicas: 2
+  selector:                     # selector will match the label with pods for deployment
+    matchLabels:
+      app: flask-nick
+  template:                     # template will give the nickname to pods
+    metadata:
+      labels:
+        app: flask-nick           # label with nickname
+    spec:
+      containers:
+      - name: flask-container
+        image: 525212/flask-todo-app
+        ports:
+        - containerPort: 5000
